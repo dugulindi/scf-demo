@@ -1,0 +1,21 @@
+org: test
+app: scf-demo
+stage: dev
+component: springboot
+name: scf-demo
+
+inputs:
+  region: ap-guangzhou
+  src: ./
+  # src:
+  #   bucket: bucket01
+  #   object: code.jar
+  projectJarName: 'scf-demo.jar'
+  functionConfig:
+    handler: 'com.ztjy.scf.MyHandler::mainHandler'
+    timeout: 300
+    memorySize: 256
+  apigatewayConf:
+    protocols:
+      - http
+      - https
